@@ -75,9 +75,9 @@ hash -r
 ```
 
 不克隆仓库也能用
-'''bash
+```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/defaultuser233/termux-kimi-cli/main/install.sh)
-'''
+```
 
 ## 卸载
 
