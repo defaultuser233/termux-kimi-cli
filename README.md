@@ -8,6 +8,8 @@
 zsh: no such file or directory: /data/data/com.termux/files/home/.kimi-code/bin/kimi
 ```
 
+![屏幕截图](./ScreenShots/Screenshot_2026_1016_170403.png)
+
 ## 问题原因
 
 Kimi CLI 官方 Linux 版是 **glibc 动态链接** 的 ELF：
@@ -22,14 +24,18 @@ interpreter /lib/ld-linux-aarch64.so.1
 
 注意：`which kimi` 能找到，`ls -l` 也能看到，但 **执行** 一定失败。不是权限、不是 PATH、不是 chmod 能解决的。
 
+![屏幕截图](./ScreenShots/Screenshot_2026_1016_170510.png)
+
 ## 解决思路
 
 用 `glibc-runner` 在 Termux 里补一个 glibc 运行环境，再用 wrapper 把 `kimi` 命令转发过去。
 
+![结果](./ScreenShots/Screenshot_2026_1016_170628.png)
+
 ## 安装
 
 ```bash
-git clone https://github.com/<你的用户名>/termux-kimi-cli.git
+git clone https://github.com/defaultuser233/termux-kimi-cli.git
 cd termux-kimi-cli
 bash install.sh
 ```
@@ -45,6 +51,10 @@ bash install.sh
 ```bash
 kimi --version
 ```
+
+![屏幕截图](./ScreenShots/Screenshot_2026_1016_170743.png)
+
+咪的天呀 咪的天呀 咪的天呀
 
 ## 手动安装（不想用脚本）
 
