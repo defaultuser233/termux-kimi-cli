@@ -1,0 +1,19 @@
+#!/data/data/com.termux/files/usr/bin/bash
+set -euo pipefail
+
+KIMI_BIN="$HOME/.kimi-code/bin/kimi.bin"
+RUNNER="${GLIBC_RUNNER:-glibc-runner}"
+
+if [ ! -x "$KIMI_BIN" ]; then
+  echo "kimi: 找不到可执行文件 $KIMI_BIN" >&2
+  echo "kimi: 请先运行 install.sh 完成安装" >&2
+  exit 1
+fi
+
+if ! command -v "$RUNNER" >/dev/null 2>&1; then
+  echo "kimi: 找不到 $RUNNER，请先 pkg install glibc-runner" >&2
+  exit 1
+fi
+
+exec "$RUNNER" "$KIMI_BIN" "$@"
+
